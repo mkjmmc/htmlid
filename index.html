@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/CSS/buttons.css" rel="stylesheet">
     <link rel="stylesheet" href="Content/Swiper/css/swiper.min.css">
     <title>Title</title>
     <style>
@@ -15,7 +16,7 @@
 
         body {
             background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-family: "微软雅黑", Helvetica Neue, Helvetica, Arial, sans-serif;
             font-size: 14px;
             color: #000;
             margin: 0;
@@ -48,15 +49,20 @@
             align-items: center;
         }
 
-        .appview{background-color: #229ffd; color: #FFF;}
-        header{
+        .appview {
+            background-color: #229ffd;
+            color: #FFF;
+        }
+
+        header {
             position: fixed;
             width: 100%;
             height: 70px;
             z-index: 999;
             color: #FFFFFF;
         }
-        header .bg{
+
+        header .bg {
             position: absolute;
             top: 0px;
             width: 100%;
@@ -71,26 +77,70 @@
             -o-transition: all .2s ease-in-out 0s;
             transition: all .2s ease-in-out 0s;
         }
-        header.fixed .bg{
+
+        header.fixed .bg {
             -moz-opacity: 0.6;
             opacity: 0.6;
         }
+        header .menu ul{
+            list-style: none;
+            margin: 0;padding: 0;
+        }
+        header .menu ul li{
+            float: left;
+        }
+        header .menu ul li a{
+            display: block;
+            color: #CCC;
+            padding:20px 30px;
+            font-size: 18px;
+        }
+        header .menu ul li a:hover, header .menu ul li a:focus,header .menu ul li a:active,header .menu ul li a:visited {
+            text-decoration: none;
+        }
+        header .menu ul li.active a{
+            color: #84b91f;
+        }
+
         .header .swiper-pagination-bullet-active {
             opacity: 1;
             background: #FFFFFF;
         }
-        .header .swiper-pagination-bullet { background: #FFF;}
+
+        .header .swiper-pagination-bullet {
+            background: #FFF;
+        }
+
+        .appview {
+            background: url(Content/Images/home1.jpg) 50% top;
+            -moz-background-size: cover;
+            background-size: cover;
+        }
+        .appview h1{
+            font-size: 80px;
+            line-height: 1.5;
+        ;
+        }
+        .appview .desc{
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
     </style>
 </head>
 <body>
 <header>
     <div class="bg"></div>
-    <nav>
-        <ul class="nav navbar-nav">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#linkman">联系</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <nav class="menu">
+            <ul class="">
+                <li class="active"><a href="#home">首页</a></li>
+                <li><a href="#linkman">联系</a></li>
+            </ul>
+        </nav>
+    </div>
+
 </header>
 
 <!-- Swiper -->
@@ -100,12 +150,12 @@
             <div class="swiper-container swiper-container-h">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide appview">
-                        <div>
+                        <div class="container">
                             <h1>AppView</h1>
-                            <div data-swiper-parallax="-1000">简洁、直观、强悍、移动设备优先的前端开发框架</div>
-                            <p  data-swiper-parallax="-2000">
-                                <a href="https://github.com/mkjmmc/appview" class="btn btn-outline-inverse btn-lg">View on GitHub</a>
-                                <a href="https://github.com/mkjmmc/appview/zipball/master" class="btn btn-outline-inverse btn-lg">下载 AppView</a>
+                            <div data-swiper-parallax="-1000" class="desc">简洁、直观、强悍、移动设备优先的前端开发框架</div>
+                            <p data-swiper-parallax="-2000">
+                                <a href="https://github.com/mkjmmc/appview" class="button button-plain button-border button-large  button-rounded">View on GitHub</a>
+                                <a href="https://github.com/mkjmmc/appview/zipball/master" class="button button-plain button-border  button-large  button-rounded">下载 AppView</a>
                             </p>
                         </div>
                     </div>
@@ -113,7 +163,7 @@
                         <div>
                             <h1>AppView</h1>
                             <div data-swiper-parallax="-1000">简洁、直观、强悍、移动设备优先的前端开发框架</div>
-                            <p  data-swiper-parallax="-2000">
+                            <p data-swiper-parallax="-2000">
                                 <a href="https://github.com/mkjmmc/appview" class="btn btn-outline-inverse btn-lg">View on GitHub</a>
                                 <a href="https://github.com/mkjmmc/appview/zipball/master" class="btn btn-outline-inverse btn-lg">下载 AppView</a>
                             </p>
@@ -149,10 +199,9 @@
         direction: 'vertical',
         paginationClickable: true,
         mousewheelControl: true,
-        hashnav:true,
-        onSlideChangeStart: function(swiper){
-            if(swiper.activeIndex > 0)
-            {
+        hashnav: true,
+        onSlideChangeStart: function (swiper) {
+            if (swiper.activeIndex > 0) {
                 $('header').addClass('fixed');
             }
             else {
@@ -165,7 +214,7 @@
         pagination: '.swiper-pagination-h',
         paginationClickable: true,
         loop: true,
-        autoplay: 2500,
+        autoplay: 10000,
         parallax: true
     });
 </script>
